@@ -6,6 +6,10 @@
 // / signup + login
 // / vote
 
+//why do we need this model and do we need to seed it
+
+// to save the user's choices
+
 
 const { Schema, model } = require('mongoose');
 

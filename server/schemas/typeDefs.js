@@ -7,7 +7,6 @@ const typeDefs = gql`
     artist: String
     year: String
     image: String
-
   }
 
   type Query {
