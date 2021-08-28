@@ -1,4 +1,6 @@
-//change profiles
-const Profile = require('./Profile');
+const User = require('./User');
+const Album = require('./Album');
+const Result = require('./Result');
 
-module.exports = { Profile };
+
+module.exports = { User, Album, Result };
