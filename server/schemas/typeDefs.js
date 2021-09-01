@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-    type Album {
+  type Album {
     _id: ID
     name: String
     artist: String
@@ -10,9 +10,10 @@ const typeDefs = gql`
     genre: String
   }
 
-     profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
+  type Query {
+    albums: [Album]!
+    album(albumId: ID!): Album
+  }
 `;
 
 module.exports = typeDefs;
