@@ -7,11 +7,12 @@ const typeDefs = gql`
     artist: String
     year: String
     image: String
+    genre: String
   }
 
-  type Query {
-    albums: [Album]!
-  }
+     profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
+    },
 `;
 
 module.exports = typeDefs;

@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ALBUMS } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_ALBUMS);
+  const { data } = useQuery(QUERY_ALBUMS);
   const albums = data?.albums || [];
 
   return (

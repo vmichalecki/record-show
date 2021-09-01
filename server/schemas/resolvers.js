@@ -8,6 +8,10 @@ const resolvers = {
     albums: async () => {
       return Album.find({});
     },
+    
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
+    },
   },
 };
 
