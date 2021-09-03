@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Genre from "./pages/Genres";
+import Genres from "./pages/Genres";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -22,8 +22,8 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/genre">
-              <Genre />
+            <Route exact path="/genres">
+              <Genres />
             </Route>
             {/* Define a route that will take in variable data */}
 

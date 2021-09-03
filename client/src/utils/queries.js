@@ -6,17 +6,22 @@ export const QUERY_ALBUMS = gql`
       _id
       name
       artist
+      year
+      image
       genre {
           _id
       }
     },
   }`;
 
-export const QUERY_RESULTS = gql`
-query albumResults {
-    albums {
+export const QUERY_ALBUM = gql`
+query album($albumId:ID!) {
+    album(albumId: $albumId) {
         _id
         name
+        artist
+      year
+      image
     }
 }`;
 

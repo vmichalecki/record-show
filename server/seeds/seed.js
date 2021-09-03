@@ -6,7 +6,9 @@ db.once('open', async () => {
     await Genre.deleteMany();
     const genres = await Genre.insertMany([
         { name: "Pop Art" },
-        { name: "OK" },
+        { name: "Contemporary" },
+        { name: "Surrealism" },
+        { name: "Abstract" }
 
     ])
 
