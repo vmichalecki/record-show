@@ -7,7 +7,7 @@ export const QUERY_ALBUMS = gql`
       name
       artist
       genre {
-          name
+          _id
       }
     },
   }`;
@@ -27,5 +27,12 @@ query albumResults {
     }
 }`;
 
+export const QUERY_GENRES = gql`
+query allGenres {
+    genres {
+        _id
+        name
+    }
+}`;
 
 

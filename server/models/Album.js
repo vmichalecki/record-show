@@ -19,7 +19,8 @@ const albumSchema = new Schema({
         type: String
     },
     genre: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'Genre'
     }
 })
 
