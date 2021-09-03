@@ -7,12 +7,18 @@ const typeDefs = gql`
     artist: String
     year: String
     image: String
-    genre: String
+    genre: Genre
   }
+
+   type Genre {
+    _id: ID
+    name: String
+   }
 
   type Query {
     albums: [Album]!
     album(albumId: ID!): Album
+    genres: [Genre]!
   }
 `;
 
