@@ -1,11 +1,18 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import { QUERY_GENRES } from "../utils/queries";
+import { QUERY_ALBUMS, QUERY_GENRES } from "../utils/queries";
 
-const Genres = () => {
-    const { data } = useQuery(QUERY_GENRES);
-    const genres = data?.genres || [];
+const Home = () => {
+    const { data } = useQuery(QUERY_ALBUMS);
+
+    // const queryMultiple = () => {
+    //   const res1 = useQuery(QUERY_ALBUMS);
+    //   const res2 = useQuery(QUERY_GENRES);
+    //   return [res1, res2];
+    // }
+
+    const albums = data?.albums || [];
 
     return (
         <main>
@@ -13,14 +20,16 @@ const Genres = () => {
 
                 <div className="col-12 col-md-10 my-3">
 
-                    {genres &&
-                        genres.map((genre) => (
-                            <div key={genre._id} className="col-12 col-xl-6">
+                    {albums &&
+                        albums.map((album) => (
+                            <div key={album._id} className="col-12 col-xl-6">
                                 <div className="card mb-3">
                                     <h4 className="card-header bg-dark text-light p-2 m-0">
-                                        {genre.name} <br />
-
-                                    </h4>
+                                        {album.name}</h4>
+                                    <h5>{album.artist}</h5>
+                                    <p>{album.year}</p>
+                                    <img alt='' src={album.image} width='200'></img>
+                                    {/* {album.genre._id} */}
                                 </div>
                             </div>
                         ))}
@@ -32,4 +41,4 @@ const Genres = () => {
     );
 };
 
-export default Genres;
+export default Home;
