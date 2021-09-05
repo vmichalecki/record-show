@@ -16,12 +16,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* Wrap page elements in Router component to keep track of location state */}
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-
           <div className="container">
-            {/* Define routes to render different page components at different paths */}
             <Route exact path="/">
               <Home />
             </Route>
@@ -34,10 +31,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            {/* Define a route that will take in variable data */}
-
           </div>
-
         </div>
       </Router>
     </ApolloProvider >
