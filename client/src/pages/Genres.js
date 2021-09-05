@@ -6,12 +6,6 @@ import { QUERY_ALBUMS, QUERY_GENRES } from "../utils/queries";
 const Home = () => {
     const { data } = useQuery(QUERY_ALBUMS);
 
-    // const queryMultiple = () => {
-    //   const res1 = useQuery(QUERY_ALBUMS);
-    //   const res2 = useQuery(QUERY_GENRES);
-    //   return [res1, res2];
-    // }
-
     const albums = data?.albums || [];
 
     return (
