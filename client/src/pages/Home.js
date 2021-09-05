@@ -2,18 +2,20 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 
 import { QUERY_ALBUM } from "../utils/queries";
-import { randomInt } from "node:crypto";
 
 const Home = () => {
   const albumIds = [
-    //hard code every ID
+    "61317f8960f0014309d93e6f",
+    "61317f8960f0014309d93e75"
   ];
-  //const randomInt = formula for math.random to choose random id;
+  const randomInt = Math.floor(Math.random() * 2)
   const randomAlbum = albumIds[randomInt]
 
   const { data } = useQuery(QUERY_ALBUM, { variables: { albumId: randomAlbum } });
 
   const album = data?.album || [];
+
+  console.log(randomAlbum)
 
   return (
     <main>
@@ -29,16 +31,29 @@ const Home = () => {
                 <h5>{album.artist}</h5>
                 <p>{album.year}</p>
                 <img alt='' src={album.image} width='200'></img>
-
-                {/* radio buttons of all genres for user to select */}
-                {/* only show voting buttons if user is logged in */}
-                {/* on the click, save the selection to the result, use result mutation */}
               </div>
             </div>
-          }
 
+          }
+          {/* only show voting buttons if user is logged in */}
+          {/* on the click, save the selection to the result, use result mutation */}
         </div>
-        <h1>IS THIS THING ON?</h1>
+        <div>
+          <input type="radio" id="popArt" name="drone" value="popArt"></input>
+          <label for="popArt">Pop Art</label>
+        </div>
+        <div>
+          <input type="radio" id="abstract" name="drone" value="abstract"></input>
+          <label for="abstract">Abstract</label>
+        </div>
+        <div>
+          <input type="radio" id="surrealism" name="drone" value="surrealism"></input>
+          <label for="surrealism">Surrealism</label>
+        </div>
+        <div>
+          <input type="radio" id="contemporary" name="drone" value="contemporary"></input>
+          <label for="contemporary">Contemporary</label>
+        </div>
       </div>
     </main>
   );
