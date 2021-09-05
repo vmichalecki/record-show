@@ -8,8 +8,7 @@ db.once('open', async () => {
         { name: "Pop Art" },
         { name: "Contemporary" },
         { name: "Surrealism" },
-        { name: "Abstract" }
-
+        { name: "Abstract" },
     ])
 
     const albums = await Album.insertMany([
