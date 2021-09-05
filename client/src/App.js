@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Genres from "./pages/Genres";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -25,13 +28,19 @@ function App() {
             <Route exact path="/genres">
               <Genres />
             </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
             {/* Define a route that will take in variable data */}
 
           </div>
 
         </div>
       </Router>
-    </ApolloProvider>
+    </ApolloProvider >
   );
 }
 
