@@ -19,8 +19,7 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          // path: 'orders.products',
-          // populate: 'category'
+
         });
 
         return user;
@@ -34,16 +33,41 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
       return { token, user };
+
     },
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
-
       throw new AuthenticationError('Not logged in');
     },
+
+    // updateAlbum: async (parent, args, context) => {
+    //   if (context.album) {
+    //     return await Album.findByIdAndUpdate(context.album._id, args, { new: false });
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
+
+    updateAlbum: async (parent, { albumId, genre }, context) => {
+      if (context.user) {
+        return Album.findOneAndUpdate(
+          { _id: albumId },
+          {
+            $addToSet: { genre: genre },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
