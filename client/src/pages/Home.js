@@ -5,8 +5,8 @@ import { QUERY_ALBUM } from "../utils/queries";
 
 const Home = () => {
   const albumIds = [
-    "6136ba0db623a955504f37e2",
-    "6136ba0db623a955504f37e3"
+    "6137c6c2dbe8d00b2090ec0f",
+    "6137c6c2dbe8d00b2090ec10"
   ];
   const randomInt = Math.floor(Math.random() * 2)
   const randomAlbum = albumIds[randomInt]
@@ -15,7 +15,7 @@ const Home = () => {
 
   const album = data?.album || [];
 
-  console.log(randomInt)
+  console.log(randomAlbum)
 
   return (
     <main>

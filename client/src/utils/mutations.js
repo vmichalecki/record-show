@@ -31,3 +31,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const UPDATE_ALBUM = gql`
+mutation updateAlbum($albumId: ID!, $genre: ID!) {
+  updateAlbum(albumId: $albumId, genre: $genre) {
+    name
+  }
+}
+`;
