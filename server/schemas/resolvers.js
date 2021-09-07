@@ -51,13 +51,13 @@ const resolvers = {
     //   throw new AuthenticationError('Not logged in');
     // },
 
+
+    // Comment out lines 57, 66, and 67 to run this before authentication
     updateAlbum: async (parent, { albumId, genre }, context) => {
       if (context.user) {
         return Album.findOneAndUpdate(
           { _id: albumId },
-          {
-            $addToSet: { genre: genre },
-          },
+          { genre },
           {
             new: true,
             runValidators: true,
