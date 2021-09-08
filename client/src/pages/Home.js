@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-
 import { QUERY_ALBUM } from "../utils/queries";
+import { useMutation } from "@apollo/client";
+import { ADD_RESULT } from '../utils/mutations';
 
 const Home = () => {
   const albumIds = [
@@ -10,12 +11,36 @@ const Home = () => {
   ];
   const randomInt = Math.floor(Math.random() * 2)
   const randomAlbum = albumIds[randomInt]
-
   const { data } = useQuery(QUERY_ALBUM, { variables: { albumId: randomAlbum } });
-
   const album = data?.album || [];
 
+  const [formState, setFormState] = useState('');
+
+  const [addResult, { error }] = useMutation(ADD_RESULT);
+
   console.log(randomAlbum)
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setFormState(
+      value
+    );
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState)
+
+    try {
+      const { data } = await addResult({
+        variables: { userId: "61341b51b1ac9b7b9a46afbd", albumId: "6137fd6261ec664eb85930cf", genreId: formState, },
+      });
+
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <main>
@@ -35,26 +60,29 @@ const Home = () => {
             </div>
 
           }
-          {/* only show voting buttons if user is logged in */}
-          {/* on the click, save the selection to the result, use result mutation */}
         </div>
+
         <div>
-          <input type="radio" id="popArt" name="drone" value="popArt"></input>
-          <label for="popArt">Pop Art</label>
+          <form onSubmit={handleFormSubmit}>
+            <div>
+              <input type="radio" id="popArt" name="drone" value="6137fd6261ec664eb85930c9" onChange={handleChange}></input>
+              <label for="popArt">Pop Art</label>
+            </div>
+            <div>
+              <input type="radio" id="abstract" name="drone" value="6137fd6261ec664eb85930cc" onChange={handleChange}></input>
+              <label for="abstract">Abstract</label>
+            </div>
+            <div>
+              <input type="radio" id="surrealism" name="drone" value="6137fd6261ec664eb85930cb" onChange={handleChange}></input>
+              <label for="surrealism">Surrealism</label>
+            </div>
+            <div>
+              <input type="radio" id="contemporary" name="drone" value="6137fd6261ec664eb85930ca" onChange={handleChange}></input>
+              <label for="contemporary">Contemporary</label>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
         </div>
-        <div>
-          <input type="radio" id="abstract" name="drone" value="abstract"></input>
-          <label for="abstract">Abstract</label>
-        </div>
-        <div>
-          <input type="radio" id="surrealism" name="drone" value="surrealism"></input>
-          <label for="surrealism">Surrealism</label>
-        </div>
-        <div>
-          <input type="radio" id="contemporary" name="drone" value="contemporary"></input>
-          <label for="contemporary">Contemporary</label>
-        </div>
-        <btn>Submit</btn>
       </div>
     </main>
   );

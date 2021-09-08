@@ -14,6 +14,20 @@ export const QUERY_ALBUMS = gql`
     },
   }`;
 
+export const QUERY_ALBUM_GENRES = gql`
+  query albumGenres($genreId: ID!) {
+    albums {
+      _id
+      name
+      artist
+      year
+      image
+      genre {
+          _id
+      }
+    },
+  }`;
+
 export const QUERY_ALBUM = gql`
 query album($albumId:ID!) {
     album(albumId: $albumId) {

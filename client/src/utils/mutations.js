@@ -39,3 +39,11 @@ mutation updateAlbum($albumId: ID!, $genre: ID!) {
   }
 }
 `;
+
+export const ADD_RESULT = gql`
+mutation addResult($userId: ID!, $albumId: ID!, $genreId: ID!) {
+  addResult(user: $userId, album: $albumId, genre: $genreId) {
+    _id
+  }
+}
+`;

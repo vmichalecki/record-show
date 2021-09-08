@@ -1,12 +1,20 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import { QUERY_ALBUMS, QUERY_GENRES } from "../utils/queries";
+import { QUERY_ALBUMS, QUERY_ALBUM_GENRES } from "../utils/queries";
 
 const Home = () => {
+    // have 4 columns of genres, repeat lines 9 and 11 four times for QUERY_ALBUM_GENRES
+
     const { data } = useQuery(QUERY_ALBUMS);
+    //    const { data } = useQuery(QUERY_ALBUM_GENRES, {variables: {genreId: HARD CODED ID}});
+
+    // assign data to variable and map through it as below with albums.map
 
     const albums = data?.albums || [];
+    //const contempAlbums
+    //const popArtalbums
+    //etc
 
     return (
         <main>
@@ -23,7 +31,7 @@ const Home = () => {
                                     <h5>{album.artist}</h5>
                                     <p>{album.year}</p>
                                     <img alt='' src={album.image} width='200'></img>
-                                    {/* {album.genre._id} */}
+                                    <p>{album.genre}</p>
                                 </div>
                             </div>
                         ))}
