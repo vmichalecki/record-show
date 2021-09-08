@@ -5,8 +5,8 @@ import { QUERY_ALBUM } from "../utils/queries";
 
 const Home = () => {
   const albumIds = [
-    "6137c6c2dbe8d00b2090ec0f",
-    "6137c6c2dbe8d00b2090ec10"
+    "6137fd6261ec664eb85930ce",
+    "6137fd6261ec664eb85930cf"
   ];
   const randomInt = Math.floor(Math.random() * 2)
   const randomAlbum = albumIds[randomInt]
@@ -54,6 +54,7 @@ const Home = () => {
           <input type="radio" id="contemporary" name="drone" value="contemporary"></input>
           <label for="contemporary">Contemporary</label>
         </div>
+        <btn>Submit</btn>
       </div>
     </main>
   );
