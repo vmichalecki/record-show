@@ -1,4 +1,4 @@
-const { Album, Genre, User } = require('../models');
+const { Album, Genre, User, Result } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -34,7 +34,6 @@ const resolvers = {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
-
     },
 
     updateUser: async (parent, args, context) => {
@@ -44,27 +43,20 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    // updateAlbum: async (parent, args, context) => {
-    //   if (context.album) {
-    //     return await Album.findByIdAndUpdate(context.album._id, args, { new: false });
-    //   }
-    //   throw new AuthenticationError('Not logged in');
-    // },
-
-
-    // Comment out lines 57, 66, and 67 to run this before authentication
     updateAlbum: async (parent, { albumId, genre }, context) => {
-      if (context.user) {
-        return Album.findOneAndUpdate(
-          { _id: albumId },
-          { genre },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      return Album.findOneAndUpdate(
+        { _id: albumId },
+        { genre },
+      );
+    },
+
+    addResult: async (parent, { user, album, genre }, context) => {
+      const result = await Result.create({
+        user: user,
+        album: album,
+        genre: genre
+      });
+      return { result }
     },
 
 

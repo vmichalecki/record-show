@@ -28,6 +28,13 @@ const typeDefs = gql`
     user: User
   }
 
+type Result {
+  _id: ID
+  user: User
+  album: Album
+  genre: Genre
+}
+
   type Query {
     albums: [Album]!
     album(albumId: ID!): Album
@@ -38,6 +45,7 @@ const typeDefs = gql`
     type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
+    addResult(user: ID!, album: ID!, genre: ID!): Result
     updateAlbum(albumId: ID!, genre: ID!): Album
     login(email: String!, password: String!): Auth
   }

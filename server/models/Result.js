@@ -17,15 +17,14 @@ const resultSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true
     },
     album: {
         type: Schema.Types.ObjectId,
         ref: 'Album',
-        required: true
     },
     genre: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'Genre',
     },
 })
 
