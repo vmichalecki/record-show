@@ -7,7 +7,23 @@ import { ADD_RESULT } from '../utils/mutations';
 const Home = () => {
   const albumIds = [
     "6137fd6261ec664eb85930ce",
-    "6137fd6261ec664eb85930cf"
+    "6137fd6261ec664eb85930cf",
+    "6137fd6261ec664eb85930d0",
+    "6137fd6261ec664eb85930d1",
+    "6137fd6261ec664eb85930d2",
+    "6137fd6261ec664eb85930d3",
+    "6137fd6261ec664eb85930d4",
+    "6137fd6261ec664eb85930d6",
+    "6137fd6261ec664eb85930d8",
+    "6137fd6261ec664eb85930d9",
+    "6137fd6261ec664eb85930da",
+    "6137fd6261ec664eb85930db",
+    "6137fd6261ec664eb85930dc",
+    "6137fd6261ec664eb85930dd",
+    "6137fd6261ec664eb85930de",
+    "6137fd6261ec664eb85930df",
+    "6137fd6261ec664eb85930e0",
+    "6137fd6261ec664eb85930e1",
   ];
   const randomInt = Math.floor(Math.random() * 2)
   const randomAlbum = albumIds[randomInt]
