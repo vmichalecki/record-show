@@ -16,8 +16,9 @@ const resolvers = {
       return Genre.find({});
     },
 
-    albums: async (parent, { genreId }) => {
-      return Album.find({ _id: genreId });
+    // two albums resolvers?
+    albumsByGenre: async (parent, { genreId }) => {
+      return Album.find({ genre: genreId }).populate("genre");
     },
 
 
