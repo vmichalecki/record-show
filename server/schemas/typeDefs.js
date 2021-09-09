@@ -35,11 +35,12 @@ type Result {
   genre: Genre
 }
 
-  type Query {
+    type Query {
     albums: [Album]!
     album(albumId: ID!): Album
     genres: [Genre]!
     user: User
+    genre(genreId: ID!): Genre
   }
 
     type Mutation {

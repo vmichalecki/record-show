@@ -16,7 +16,7 @@ export const QUERY_ALBUMS = gql`
 
 export const QUERY_ALBUM_GENRES = gql`
   query albumGenres($genreId: ID!) {
-    albums {
+    albums(genreId: $genreId) {
       _id
       name
       artist

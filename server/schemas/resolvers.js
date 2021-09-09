@@ -16,6 +16,11 @@ const resolvers = {
       return Genre.find({});
     },
 
+    albums: async (parent, { genreId }) => {
+      return Album.find({ _id: genreId });
+    },
+
+
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -58,7 +63,6 @@ const resolvers = {
       });
       return { result }
     },
-
 
 
     login: async (parent, { email, password }) => {
