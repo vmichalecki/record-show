@@ -25,7 +25,7 @@ const Home = () => {
     "6137fd6261ec664eb85930e0",
     "6137fd6261ec664eb85930e1",
   ];
-  const randomInt = Math.floor(Math.random() * 2)
+  const randomInt = Math.floor(Math.random() * 20)
   const randomAlbum = albumIds[randomInt]
   const { data } = useQuery(QUERY_ALBUM, { variables: { albumId: randomAlbum } });
   const album = data?.album || [];
@@ -60,43 +60,47 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
+      <div className="container mt-3">
 
-        <div className="col-12 col-md-10 my-3">
+        <div className="col-12">
 
           {album &&
-            <div key={album._id} className="col-12 col-xl-6">
+            <div key={album._id} className="col-12">
               <div className="card mb-3">
-                <h4 className="card-header bg-dark text-light p-2 m-0">
-                  {album.name}</h4>
-                <h5>{album.artist}</h5>
-                <p>{album.year}</p>
-                <img alt='' src={album.image} width='200'></img>
+                <h1 className="card-header bg-dark text-light p-2 m-0 text-center display-1">
+                  {album.name}</h1>
+                  <div className="d-flex flex-column justify-content-center align-items-center p-4">
+                <h2 className="display-4">{album.artist}</h2>
+                <h4>{album.year}</h4>
+                <img alt='' src={album.image} width='400'></img>
+                </div>
               </div>
             </div>
 
           }
         </div>
 
-        <div>
-          <form onSubmit={handleFormSubmit}>
-            <div>
+        <div className="d-flex flex-column">
+          <form className="m-auto" onSubmit={handleFormSubmit}>
+            <div className="p-2">
               <input type="radio" id="popArt" name="drone" value="6137fd6261ec664eb85930c9" onChange={handleChange}></input>
-              <label for="popArt">Pop Art</label>
+              <label className="p-2 h3" for="popArt">Pop Art</label>
             </div>
-            <div>
+            <div className="p-2">
               <input type="radio" id="abstract" name="drone" value="6137fd6261ec664eb85930cc" onChange={handleChange}></input>
-              <label for="abstract">Abstract</label>
+              <label className="p-2 h3" for="abstract">Abstract</label>
             </div>
-            <div>
+            <div className="p-2">
               <input type="radio" id="surrealism" name="drone" value="6137fd6261ec664eb85930cb" onChange={handleChange}></input>
-              <label for="surrealism">Surrealism</label>
+              <label className="p-2 h3"for="surrealism">Surrealism</label>
             </div>
-            <div>
+            <div className="p-2">
               <input type="radio" id="contemporary" name="drone" value="6137fd6261ec664eb85930ca" onChange={handleChange}></input>
-              <label for="contemporary">Contemporary</label>
+              <label className="p-2 h3" for="contemporary">Contemporary</label>
             </div>
-            <button type="submit">Submit</button>
+            <div className="d-flex flex-column">
+            <button className="btn btn-dark mb-4 btn-lg" type="submit">Submit</button>
+            </div>
           </form>
         </div>
       </div>
