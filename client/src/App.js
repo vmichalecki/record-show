@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Genres from "./pages/Genres";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Logo from "./images/recordShow1.png"
 
 
 const client = new ApolloClient({
@@ -17,6 +18,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <div>
+        <header>
+          <img width="200" src={Logo} alt={"logo"}/>
+        </header>
+      </div>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">

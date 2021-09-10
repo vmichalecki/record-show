@@ -25,76 +25,83 @@ const Home = () => {
   const albumsSurrealism = dataSurrealism?.albumsByGenre || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
+    <main className="container">
+      <div className="row">
+        <div className="col">
+          <h2 className="p-3 text-center">Pop Art</h2>
           {albumsPop &&
             albumsPop.map((album) => (
-              <div key={album._id} className="col-12 col-xl-6">
+              <div key={album._id} className="col-12">
                 <div className="card mb-3">
-                  <h4 className="card-header bg-dark text-light p-2 m-0">
+                  <div className="card-header bg-dark text-light p-2 m-0 text-center">
                     {album.name}
-                  </h4>
-                  <h5>{album.artist}</h5>
-                  <p>{album.year}</p>
-                  <img alt="" src={album.image} width="200"></img>
-                  <p>{album.genre.name}</p>
+                  </div>
+                  <div className="d-flex flex-column justify-content-center align-items-center p-4">
+                    <h5>{album.artist}</h5>
+                    <p>{album.year}</p>
+                    <img alt="" src={album.image} width="200"></img>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
 
-        <div className="col-12 col-md-10 my-3">
+        <div className="col">
+          <h2 className="p-3 text-center">Contemporary</h2>
           {albumsContemporary &&
             albumsContemporary.map((album) => (
-              <div key={album._id} className="col-12 col-xl-6">
+              <div key={album._id} className="col-12">
                 <div className="card mb-3">
-                  <h4 className="card-header bg-dark text-light p-2 m-0">
+                  <div className="card-header bg-dark text-light p-2 m-0 text-center">
                     {album.name}
-                  </h4>
+                  </div>
+                  <div className="d-flex flex-column justify-content-center align-items-center p-4">
                   <h5>{album.artist}</h5>
                   <p>{album.year}</p>
                   <img alt="" src={album.image} width="200"></img>
-                  <p>{album.genre.name}</p>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
 
-        <div className="col-12 col-md-10 my-3">
+        <div className="col">
+          <h2 className="p-3 text-center">Abstract</h2>
           {albumsAbstract &&
             albumsAbstract.map((album) => (
-              <div key={album._id} className="col-12 col-xl-6">
+              <div key={album._id} className="col-12">
                 <div className="card mb-3">
-                  <h4 className="card-header bg-dark text-light p-2 m-0">
+                  <div className="card-header bg-dark text-light p-2 m-0 text-center">
                     {album.name}
-                  </h4>
+                  </div>
+                  <div className="d-flex flex-column justify-content-center align-items-center p-4">
                   <h5>{album.artist}</h5>
                   <p>{album.year}</p>
                   <img alt="" src={album.image} width="200"></img>
-                  <p>{album.genre.name}</p>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
 
-        <div className="col-12 col-md-10 my-3">
+        <div className="col">
+          <h2 className="p-3 text-center">Surrealism</h2>
           {albumsSurrealism &&
             albumsSurrealism.map((album) => (
-              <div key={album._id} className="col-12 col-xl-6">
+              <div key={album._id} className="col-12">
                 <div className="card mb-3">
-                  <h4 className="card-header bg-dark text-light p-2 m-0">
+                  <div className="card-header bg-dark text-light p-2 m-0 text-center">
                     {album.name}
-                  </h4>
+                  </div>
+                  <div className="d-flex flex-column justify-content-center align-items-center p-4">
                   <h5>{album.artist}</h5>
                   <p>{album.year}</p>
                   <img alt="" src={album.image} width="200"></img>
-                  <p>{album.genre.name}</p>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
-        <h1>IS THIS THING ON?</h1>
       </div>
     </main>
   );
