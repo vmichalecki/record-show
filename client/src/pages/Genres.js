@@ -4,9 +4,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ALBUM_GENRES } from "../utils/queries";
 
 const Home = () => {
-  // have 4 columns of genres, repeat lines 9 and 11 four times for QUERY_ALBUM_GENRES
 
-   const { data: dataPop } = useQuery(QUERY_ALBUM_GENRES, {
+  const { data: dataPop } = useQuery(QUERY_ALBUM_GENRES, {
     variables: { genreId: "6137fd6261ec664eb85930c9" },
   });
   const { data: dataRealism } = useQuery(QUERY_ALBUM_GENRES, {
@@ -47,7 +46,7 @@ const Home = () => {
         </div>
 
         <div className="col">
-          <h2 className="p-3 text-center">Contemporary</h2>
+          <h2 className="p-3 text-center">Realism</h2>
           {albumsRealism &&
             albumsRealism.map((album) => (
               <div key={album._id} className="col-12">
@@ -56,9 +55,9 @@ const Home = () => {
                     {album.name}
                   </div>
                   <div className="d-flex flex-column justify-content-center align-items-center p-4">
-                  <h5>{album.artist}</h5>
-                  <p>{album.year}</p>
-                  <img alt="" src={album.image} width="200"></img>
+                    <h5>{album.artist}</h5>
+                    <p>{album.year}</p>
+                    <img alt="" src={album.image} width="200"></img>
                   </div>
                 </div>
               </div>
@@ -75,9 +74,9 @@ const Home = () => {
                     {album.name}
                   </div>
                   <div className="d-flex flex-column justify-content-center align-items-center p-4">
-                  <h5>{album.artist}</h5>
-                  <p>{album.year}</p>
-                  <img alt="" src={album.image} width="200"></img>
+                    <h5>{album.artist}</h5>
+                    <p>{album.year}</p>
+                    <img alt="" src={album.image} width="200"></img>
                   </div>
                 </div>
               </div>
@@ -94,9 +93,9 @@ const Home = () => {
                     {album.name}
                   </div>
                   <div className="d-flex flex-column justify-content-center align-items-center p-4">
-                  <h5>{album.artist}</h5>
-                  <p>{album.year}</p>
-                  <img alt="" src={album.image} width="200"></img>
+                    <h5>{album.artist}</h5>
+                    <p>{album.year}</p>
+                    <img alt="" src={album.image} width="200"></img>
                   </div>
                 </div>
               </div>
