@@ -13,7 +13,7 @@ We've built an app that lets a user login and vote on which art style best descr
 - [Future Development](#Future-Development)
 - [Questions](#Questions)
 - [Acknowledgements](#Acknowledgements)
-- [Screenshots](#Screenshots)
+- [Screenshot](#Screenshot)
 
 ## License
 
@@ -21,8 +21,8 @@ MIT
 
 ## Deployed Application and Usage
 
-Follow this link to use the app. Vote on cover art from your favorite albums, view albums by art style.
-[Let the Record Show](https://diva-hams.herokuapp.com/)
+Follow this link: ([Let the Record Show](https://diva-hams.herokuapp.com/)).
+Vote on cover art from your favorite albums, view albums by art style.
 
 ## Future Development
 
@@ -40,10 +40,11 @@ For additional information please contact us via GitHub at [github.com/divahams]
 
 ## Acknowledgements
 
-_Diva Hams_
+_Diva Hams Founders_
 [Valerie Michalecki](https://github.com/vmichalecki), [David Rivera](https://github.com/riveraadavid), [Heidi Reyes](https://github.com/heidi457) and [Miguel Alicea](https://github.com/malicea0783)
+
 [github.com/divahams](https://github.com/divahams)
 
-## Screenshots
+## Screenshot
 
 ![Let the Record Show](./client/src/images/record-show-genre-page.png)
