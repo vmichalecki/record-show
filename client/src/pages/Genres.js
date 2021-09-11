@@ -9,7 +9,7 @@ const Home = () => {
    const { data: dataPop } = useQuery(QUERY_ALBUM_GENRES, {
     variables: { genreId: "6137fd6261ec664eb85930c9" },
   });
-  const { data: dataContemporary } = useQuery(QUERY_ALBUM_GENRES, {
+  const { data: dataRealism } = useQuery(QUERY_ALBUM_GENRES, {
     variables: { genreId: "6137fd6261ec664eb85930ca" },
   });
   const { data: dataAbstract } = useQuery(QUERY_ALBUM_GENRES, {
@@ -20,7 +20,7 @@ const Home = () => {
   });
 
   const albumsPop = dataPop?.albumsByGenre || [];
-  const albumsContemporary = dataContemporary?.albumsByGenre || [];
+  const albumsRealism = dataRealism?.albumsByGenre || [];
   const albumsAbstract = dataAbstract?.albumsByGenre || [];
   const albumsSurrealism = dataSurrealism?.albumsByGenre || [];
 
@@ -48,8 +48,8 @@ const Home = () => {
 
         <div className="col">
           <h2 className="p-3 text-center">Contemporary</h2>
-          {albumsContemporary &&
-            albumsContemporary.map((album) => (
+          {albumsRealism &&
+            albumsRealism.map((album) => (
               <div key={album._id} className="col-12">
                 <div className="card mb-3">
                   <div className="card-header bg-dark text-light p-2 m-0 text-center">

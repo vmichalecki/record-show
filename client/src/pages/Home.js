@@ -95,12 +95,10 @@ const Home = () => {
               <label className="p-2 h3"for="surrealism">Surrealism</label>
             </div>
             <div className="p-2">
-              <input type="radio" id="contemporary" name="drone" value="6137fd6261ec664eb85930ca" onChange={handleChange}></input>
-              <label className="p-2 h3" for="contemporary">Contemporary</label>
+              <input type="radio" id="realism" name="drone" value="6137fd6261ec664eb85930ca" onChange={handleChange}></input>
+              <label className="p-2 h3" for="realism">Realism</label>
             </div>
-            <div className="d-flex flex-column">
-            <button className="btn btn-dark mb-4 btn-lg" type="submit">Submit</button>
-            </div>
+
           </form>
         </div>
       </div>
