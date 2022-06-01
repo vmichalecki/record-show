@@ -4,7 +4,7 @@
 
 ## Description
 
-Forked from collabortive project to expand as sole author.
+Forked from collaborative project to expand as sole author.
 
 This app lets a user login and vote on which art style best describes their favorite album covers. This app was built using `React`, `GraphQl`, and `MongoDB`.
 
